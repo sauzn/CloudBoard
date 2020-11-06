@@ -3,14 +3,39 @@
 <mapper namespace="com.sauzn.cloudboard.mapper.UserMapper">
 
     <resultMap id="BaseResultMap" type="com.sauzn.cloudboard.entity.User">
-        <result column="id" jdbcType="INTEGER" property="id" />
-        <result column="userName" jdbcType="VARCHAR" property="userName" />
-        <result column="passWord" jdbcType="VARCHAR" property="passWord" />
-        <result column="realName" jdbcType="VARCHAR" property="realName" />
+        <id column="id" jdbcType="INT" property="id" />
+        <result column="id" jdbcType="VARCHAR" property="id" />
+        <result column="login_account" jdbcType="VARCHAR" property="loginAccount" />
+        <result column="pass_word" jdbcType="VARCHAR" property="passwWord" />
+        <result column="user_name" jdbcType="VARCHAR" property="userName" />
+        <result column="phone_number" jdbcType="VARCHAR" property="phoneNumber" />
+        <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+        <result column="gender" jdbcType="VARCHAR" property="gender" />
+        <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+        <result column="area" jdbcType="VARCHAR" property="area" />
+        <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+        <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+        <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+        <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+
     </resultMap>
 
-    <select id="Sel" resultType="com.sauzn.cloudboard.entity.User">
-        select * from user where id = #{id}
+    <select id="Sel" resultMap="BaseResultMap">
+        select
+            id,
+            login_account,
+            pass_word,
+            user_name,
+            phone_number,
+            avatar,
+            gender,
+            birthday,
+            area,
+            create_time,
+            update_time,
+            create_by,
+            update_by
+        from user where id = #{loginAccount}
     </select>
 
 </mapper>
